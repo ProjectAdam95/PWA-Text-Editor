@@ -1,2 +1,1 @@
-# PWA-Text-Editor
-A text editor application that runs in the browser without an internet connection
+# 19 Progressive Web Applications (PWA): Text Editor

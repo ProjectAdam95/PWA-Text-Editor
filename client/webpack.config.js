@@ -5,10 +5,14 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'development',
+    mode: 'development', // Can change to 'production' for the final build
+    
+    // Set context to ensure the correct base directory is used
+    context: path.resolve(__dirname, 'client'),  // Set client directory as context
+
     entry: {
-      main: './client/src/js/index.js',
-      install: './client/src/js/install.js'
+      main: './src/js/index.js',     // Path relative to 'client/'
+      install: './src/js/install.js' // Path relative to 'client/'
     },
     output: {
       filename: '[name].bundle.js',
@@ -17,13 +21,13 @@ module.exports = () => {
     plugins: [
       // Generates an HTML file that includes your bundles
       new HtmlWebpackPlugin({
-        template: './client/index.html', 
+        template: './index.html', // Path relative to 'client/'
         title: 'Text Editor PWA',
       }),
 
       // Injects the custom service worker file
       new InjectManifest({
-        swSrc: './client/src-sw.js',
+        swSrc: './src-sw.js', // Path relative to 'client/'
         swDest: 'service-worker.js',
       }),
 
@@ -40,14 +44,13 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('client/src/images/logo.png'),
+            src: path.resolve('src/images/logo.png'), // Path relative to 'client/'
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
         ],
       }),
     ],
-
     module: {
       rules: [
         // CSS loaders
@@ -62,8 +65,8 @@ module.exports = () => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'], // Transpiles modern JS
-              plugins: ['@babel/plugin-transform-runtime'], // Enables async/await
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime'],
             },
           },
         },

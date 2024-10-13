@@ -5,31 +5,31 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'production', // Change to production for deployment
+    mode: 'production',
 
-    // Ensure paths are correctly referencing the client/src folder
+    // Entry points, pointing to the correct JS files
     entry: {
-      main: './client/src/js/index.js', // Correct path
-      install: './client/src/js/install.js', // Correct path
+      main: './src/js/index.js', // Ensure the path is correct (relative to client folder)
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'client/dist'), // Output to client/dist
+      path: path.resolve(__dirname, 'dist'), // Output folder should match the client/dist
     },
     plugins: [
-      // Generates an HTML file that includes your bundles
+      // Generates HTML file that includes the bundled scripts
       new HtmlWebpackPlugin({
-        template: './client/index.html', // Correct path to HTML template
+        template: './index.html', // Correct relative path to the HTML file
         title: 'Text Editor PWA',
       }),
 
-      // Injects the custom service worker file
+      // Injecting custom service worker
       new InjectManifest({
-        swSrc: './client/src-sw.js', // Correct path to the service worker
+        swSrc: './src-sw.js', // Correct relative path to the service worker
         swDest: 'service-worker.js',
       }),
 
-      // Generates a manifest.json file for your PWA
+      // Manifest for PWA with correct path to the logo
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
@@ -42,14 +42,13 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('client/src/images/logo.png'), // Correct path to logo
+            src: path.resolve('src/images/logo.png'), // Correct path to the logo
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
         ],
       }),
     ],
-
     module: {
       rules: [
         // CSS loaders
@@ -57,7 +56,7 @@ module.exports = () => {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
-        // Babel loader to transpile ES6+ to ES5
+        // Babel loader for transpiling JS
         {
           test: /\.m?js$/,
           exclude: /node_modules/,

@@ -18,8 +18,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "webpack": "^5.64.0",              // Ensure latest version
-    "webpack-cli": "^4.9.1",           // Ensure latest version
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
     "workbox-webpack-plugin": "^6.2.4"
   },
   "devDependencies": {

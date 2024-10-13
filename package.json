@@ -7,7 +7,7 @@
     "start:dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
-    "build": "cd client && npm run build",
+    "build": "webpack --config webpack.config.js --mode production",
     "client": "cd client && npm start",
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
+    "html-webpack-plugin": "^5.6.0",
     "nodemon": "^2.0.4",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"

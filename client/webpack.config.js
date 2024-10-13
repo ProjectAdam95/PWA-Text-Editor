@@ -5,26 +5,27 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'production', // Change to production for final builds
+    mode: 'production', // Change to production for deployment
 
+    // Ensure paths are correctly referencing the client/src folder
     entry: {
-      main: './src/js/index.js',  // Correct path relative to 'client'
-      install: './src/js/install.js',  // Correct path relative to 'client'
+      main: './client/src/js/index.js', // Correct path
+      install: './client/src/js/install.js', // Correct path
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),  // Ensure correct output path
+      path: path.resolve(__dirname, 'client/dist'), // Output to client/dist
     },
     plugins: [
       // Generates an HTML file that includes your bundles
       new HtmlWebpackPlugin({
-        template: './index.html',  // Path relative to 'client'
+        template: './client/index.html', // Correct path to HTML template
         title: 'Text Editor PWA',
       }),
 
       // Injects the custom service worker file
       new InjectManifest({
-        swSrc: './src-sw.js',  // Correct path relative to 'client'
+        swSrc: './client/src-sw.js', // Correct path to the service worker
         swDest: 'service-worker.js',
       }),
 
@@ -41,9 +42,9 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve(__dirname, 'src/images/logo.png'),  // Corrected path
-            sizes: [96, 128, 192, 256, 384, 512],  // Icon sizes
-            destination: path.join('assets', 'icons'),  // Output folder
+            src: path.resolve('client/src/images/logo.png'), // Correct path to logo
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),

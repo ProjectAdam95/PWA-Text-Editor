@@ -5,32 +5,32 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'development', // Can change to 'production' for the final build
+    mode: 'development',
     entry: {
-      main: './src/js/index.js',
-      install: './src/js/install.js',
+      main: './client/src/js/index.js',
+      install: './client/src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'client/dist'),
     },
     plugins: [
       // Generates an HTML file that includes your bundles
       new HtmlWebpackPlugin({
-        template: './index.html', // Path to your HTML template
+        template: './client/index.html', 
         title: 'Text Editor PWA',
       }),
 
       // Injects the custom service worker file
       new InjectManifest({
-        swSrc: './src-sw.js', // Path to the custom service worker
-        swDest: 'service-worker.js', // Output path for the service worker
+        swSrc: './client/src-sw.js',
+        swDest: 'service-worker.js',
       }),
 
       // Generates a manifest.json file for your PWA
       new WebpackPwaManifest({
-        fingerprints: false, // Optional: removes hashing of file names
-        inject: true, // Automatically links manifest.json in HTML
+        fingerprints: false,
+        inject: true,
         name: 'Text Editor',
         short_name: 'TextEditor',
         description: 'A simple text editor PWA!',
@@ -40,9 +40,9 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'), // Path to your icon
-            sizes: [96, 128, 192, 256, 384, 512], // Icon sizes
-            destination: path.join('assets', 'icons'), // Output folder
+            src: path.resolve('client/src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),

@@ -6,30 +6,25 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 module.exports = () => {
   return {
     mode: 'production',
-
-    // Entry points, pointing to the correct JS files
+    
+    // Entry points
     entry: {
-      main: './src/js/index.js', // Ensure the path is correct (relative to client folder)
+      main: './src/js/index.js',
       install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'), // Output folder should match the client/dist
+      path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      // Generates HTML file that includes the bundled scripts
       new HtmlWebpackPlugin({
-        template: './index.html', // Correct relative path to the HTML file
+        template: './index.html',
         title: 'Text Editor PWA',
       }),
-
-      // Injecting custom service worker
       new InjectManifest({
-        swSrc: './src-sw.js', // Correct relative path to the service worker
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
-
-      // Manifest for PWA with correct path to the logo
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
@@ -42,7 +37,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'), // Correct path to the logo
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
@@ -51,12 +46,10 @@ module.exports = () => {
     ],
     module: {
       rules: [
-        // CSS loaders for handling CSS files
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'], // Add CSS and Style loaders here
+          use: ['style-loader', 'css-loader'],
         },
-        // Babel loader for transpiling JS
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
@@ -69,6 +62,10 @@ module.exports = () => {
           },
         },
       ],
+    },
+    // Add the resolve block here
+    resolve: {
+      modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'],
     },
   };
 };

@@ -29,17 +29,46 @@ This PWA Text Editor application is built to run in the browser and can be insta
 PWA-TEXT-EDITOR/
 ├── client/
 │   ├── dist/
+│   │   ├── assets/
+│   │   │   └── icons/                     # Icons for PWA
+│   │   ├── index.html                     # Bundled HTML file
+│   │   ├── install.bundle.js              # JavaScript bundle for install logic
+│   │   ├── main.bundle.js                 # Main JavaScript bundle
+│   │   ├── manifest.json                  # PWA manifest
+│   │   ├── service-worker.js              # Service worker script
 │   ├── src/
-│   ├── .gitignore
-│   ├── package.json
-│   └── webpack.config.js
+│   │   ├── css/
+│   │   │   └── style.css                  # Application styles
+│   │   ├── images/
+│   │   │   └── logo.png                   # Logo image
+│   │   ├── js/
+│   │   │   ├── database.js                # IndexedDB logic
+│   │   │   ├── editor.js                  # Text editor logic
+│   │   │   ├── header.js                  # Header logic
+│   │   │   ├── index.js                   # Main JavaScript entry point
+│   │   │   ├── install.js                 # Install button logic
+│   ├── .eslintrc                          # ESLint configuration
+│   ├── .gitignore                         # Ignore unnecessary files
+│   ├── favicon.ico                        # Favicon for the app
+│   ├── index.html                         # Main HTML file
+│   ├── package-lock.json                  # Dependency lock file for client
+│   ├── package.json                       # Client-side dependencies and scripts
+│   ├── src-sw.js                          # Service worker logic
+│   ├── webpack.config.js                  # Webpack configuration for bundling
+├── node_modules/                          # Node modules (hidden by .gitignore)
 ├── server/
 │   ├── routes/
-│   ├── .gitignore
-│   ├── package.json
-│   └── server.js
-├── .env
-├── README.md
+│   │   └── htmlRoutes.js                  # Routes for serving HTML
+│   ├── server.js                          # Express server
+│   ├── package-lock.json                  # Dependency lock file for server
+│   ├── package.json                       # Server-side dependencies and scripts
+├── .env                                   # Environment variables (should be ignored in version control)
+├── .gitignore                             # Git ignore file
+├── .npmrc                                 # NPM configuration
+├── package-lock.json                      # Root lock file
+├── package.json                           # Root dependencies and scripts
+├── README.md                              # Project README file
+
 
 ```
 

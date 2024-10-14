@@ -51,10 +51,10 @@ module.exports = () => {
     ],
     module: {
       rules: [
-        // CSS loaders
+        // CSS loaders for handling CSS files
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          use: ['style-loader', 'css-loader'], // Add CSS and Style loaders here
         },
         // Babel loader for transpiling JS
         {

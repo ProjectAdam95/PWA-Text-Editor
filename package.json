@@ -11,7 +11,8 @@
     "client": "cd client && npm start",
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
-    "postinstall": "npm run install-client && npm run install-server && npm run build"
+    "postinstall": "npm run install-client && npm run install-server && npm run build",
+    "preinstall": "npm install webpack-cli"
   },
   "keywords": [],
   "author": "",
@@ -24,10 +25,10 @@
     "workbox-webpack-plugin": "^6.2.4"
   },
   "devDependencies": {
-    "webpack": "^5.95.0",
+    "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^5.6.0",
-    "workbox-webpack-plugin": "^6.2.4",
-    "babel-loader": "^8.2.2"
+    "webpack": "^5.95.0",
+    "workbox-webpack-plugin": "^6.2.4"
   },
   "engines": {
     "node": ">=14.x"

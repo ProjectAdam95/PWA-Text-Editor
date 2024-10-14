@@ -5,6 +5,10 @@
   },
   "author": "2U",
   "license": "UNLICENSED",
+  "dependencies": {
+    "idb": "^6.1.2",
+    "webpack-cli": "^5.1.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
@@ -15,12 +19,8 @@
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^3.2.1",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
+    "webpack": "^5.51.1",
     "webpack-pwa-manifest": "^4.3.0",
     "workbox-webpack-plugin": "^6.2.4"
-  },
-  "dependencies": {
-    "idb": "^6.1.2"
   }
 }

@@ -64,8 +64,9 @@ module.exports = () => {
     },
     resolve: {
       modules: [
-        path.resolve(__dirname, 'client/node_modules'), // Ensure correct path
-        'node_modules',
+        path.resolve(__dirname, 'node_modules'),  // Ensure it looks at the root node_modules
+        path.resolve(__dirname, 'client/node_modules'),  // client-specific node_modules
+        'node_modules', // Default fallback
       ],
     },
   };

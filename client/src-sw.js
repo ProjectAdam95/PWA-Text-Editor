@@ -3,24 +3,24 @@ const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
-const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
+const { precacheAndRoute } = require('workbox-precaching');
 
 // Precache assets using self.__WB_MANIFEST (automatically injected by Workbox)
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Cache manifest.json explicitly
+// Explicitly precache the manifest.json file
 precacheAndRoute([
-  { url: '/manifest.json', revision: null }
+  { url: '/manifest.json', revision: null },
 ]);
 
-// Manually precache the icons
+// Manually precache icons
 precacheAndRoute([
   { url: '/assets/icons/icon_96x96.png', revision: null },
   { url: '/assets/icons/icon_128x128.png', revision: null },
   { url: '/assets/icons/icon_192x192.png', revision: null },
   { url: '/assets/icons/icon_256x256.png', revision: null },
   { url: '/assets/icons/icon_384x384.png', revision: null },
-  { url: '/assets/icons/icon_512x512.png', revision: null }
+  { url: '/assets/icons/icon_512x512.png', revision: null },
 ]);
 
 // Cache page navigations (HTML)
@@ -36,7 +36,7 @@ const pageCache = new CacheFirst({
   ],
 });
 
-// Pre-cache important pages
+// Precache important pages
 warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
@@ -45,13 +45,12 @@ warmStrategyCache({
 // Cache navigations (HTML)
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// Implement asset caching (CSS, JS, Images, Workers)
+// Cache assets (CSS, JS, Images, Workers)
 registerRoute(
   ({ request }) =>
     request.destination === 'style' ||
     request.destination === 'script' ||
     request.destination === 'worker',
-  
   new StaleWhileRevalidate({
     cacheName: 'asset-cache',
     plugins: [
@@ -59,8 +58,8 @@ registerRoute(
         statuses: [0, 200],
       }),
       new ExpirationPlugin({
-        maxEntries: 60, 
-        maxAgeSeconds: 30 * 24 * 60 * 60, 
+        maxEntries: 60, // Limit to 60 entries
+        maxAgeSeconds: 30 * 24 * 60 * 60, // Cache for 30 days
       }),
     ],
   })
@@ -76,8 +75,8 @@ registerRoute(
         statuses: [0, 200],
       }),
       new ExpirationPlugin({
-        maxEntries: 30, 
-        maxAgeSeconds: 30 * 24 * 60 * 60, 
+        maxEntries: 30, // Limit to 30 entries
+        maxAgeSeconds: 30 * 24 * 60 * 60, // Cache for 30 days
       }),
     ],
   })

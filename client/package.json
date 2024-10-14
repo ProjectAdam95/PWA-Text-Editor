@@ -7,7 +7,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "idb": "^6.1.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-pwa-manifest": "^4.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

@@ -65,7 +65,7 @@ module.exports = () => {
     },
     // Add the resolve block here
     resolve: {
-      modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'],
+      modules: [path.resolve(__dirname, 'client/node_modules'), 'node_modules'],
     },
   };
 };

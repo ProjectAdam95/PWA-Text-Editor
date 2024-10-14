@@ -1,6 +1,7 @@
 {
   "name": "JATE",
   "scripts": {
+    "preinstall": "npm install webpack-cli",
     "build": "webpack --mode production"
   },
   "author": "2U",

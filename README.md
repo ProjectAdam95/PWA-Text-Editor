@@ -56,7 +56,7 @@ PWA-TEXT-EDITOR/
 
 The application is deployed on Render. The deployment process includes building the app using Webpack, ensuring that service workers and IndexedDB are functioning correctly for offline use.
 
-- Deployed at: [ENTER WEBSITE HERE] (https://pwa-text-editor-p569.onrender.com)
+- Deployed at: https://pwa-text-editor-p569.onrender.com
 - **Render Setup**: The application includes proper build scripts for deployment on Render, and uses `npm` for both server and client-side setup.
 - **No Errors**: The deployed application loads without errors, ensuring a smooth user experience.
 

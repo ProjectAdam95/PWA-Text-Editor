@@ -7,7 +7,7 @@
     "license": "UNLICENSED",
     "dependencies": {
         "idb": "^6.1.2",
-        "webpack-pwa-manifest": "^4.3.0",
+        "webpack-pwa-manifest": "^4.0.0",
         "workbox-cacheable-response": "^7.1.0",
         "workbox-core": "^7.1.0",
         "workbox-expiration": "^7.1.0",
@@ -24,7 +24,7 @@
         "babel-loader": "^8.4.1",
         "css-loader": "^6.11.0",
         "html-webpack-plugin": "^5.6.0",
-        "style-loader": "^3.3.4",
+        "style-loader": "^4.0.0",
         "webpack": "^5.95.0",
         "webpack-cli": "^5.1.4",
         "workbox-webpack-plugin": "^6.6.0"

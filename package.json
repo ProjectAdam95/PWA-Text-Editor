@@ -8,12 +8,12 @@
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "cd client && npm install && npm run build",
+    "build:client": "npm run build --prefix client",
     "build:server": "cd server && npm install",
-    "client": "cd client && npm start",
-    "install-client": "cd client && npm install",
-    "install-server": "cd server && npm install",
-    "postinstall": "npm run install-client && npm run install-server && npm run build"
+    "client": "npm start --prefix client",
+    "install-client": "npm install --prefix client",
+    "install-server": "npm install --prefix server",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -23,11 +23,11 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.25.7",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.11.0",
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.95.0",
-    "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.2.4"
+    "webpack-pwa-manifest": "^4.0.0"
   },
   "engines": {
     "node": ">=14.x"

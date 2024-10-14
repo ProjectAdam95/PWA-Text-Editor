@@ -7,7 +7,6 @@ module.exports = () => {
   return {
     mode: 'production',
     
-    // Entry points
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
@@ -63,9 +62,11 @@ module.exports = () => {
         },
       ],
     },
-    // Add the resolve block here
     resolve: {
-      modules: [path.resolve(__dirname, 'client/node_modules'), 'node_modules'],
+      modules: [
+        path.resolve(__dirname, 'client/node_modules'), // Ensure correct path
+        'node_modules',
+      ],
     },
   };
 };

@@ -11,26 +11,23 @@
     "client": "cd client && npm start",
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
-    "preinstall": "npm install webpack-cli",
-    "postinstall": "npm install webpack-cli && npm run install-client && npm run install-server && npm run build"
+    "preinstall": "npm install",
+    "postinstall": "npm run install-client && npm run install-server && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "html-webpack-plugin": "^5.6.0",
     "if-env": "^1.0.4",
-    "webpack-cli": "^5.1.4",
     "workbox-webpack-plugin": "^6.2.4"
   },
- "devDependencies": {
-  "webpack": "^5.95.0",
-  "webpack-cli": "^5.1.4",
-  "html-webpack-plugin": "^5.6.0",
-  "workbox-webpack-plugin": "^6.2.4",
-  "babel-loader": "^8.2.2"
-},
+  "devDependencies": {
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.6.0"
+  },
   "engines": {
     "node": ">=14.x"
   }

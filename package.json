@@ -11,18 +11,18 @@
     "client": "cd client && npm start",
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
+    "preinstall": "npm install webpack-cli",
     "postinstall": "npm run install-client && npm run install-server && npm run build"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "html-webpack-plugin": "^5.6.0",
     "if-env": "^1.0.4",
+    "html-webpack-plugin": "^5.6.0",
     "webpack-cli": "^5.1.4",
     "workbox-webpack-plugin": "^6.2.4"
   },
   "devDependencies": {
     "babel-loader": "^8.2.2",
-    "html-webpack-plugin": "^5.6.0",
     "webpack": "^5.95.0",
     "workbox-webpack-plugin": "^6.2.4"
   },

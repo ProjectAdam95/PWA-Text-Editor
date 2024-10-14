@@ -5,40 +5,19 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage
-
 # Dependency directories
 node_modules/
+client/node_modules/
+server/node_modules/
 
-# Optional npm cache directory
-.npm
+# Build directories
+dist/
+client/dist/
+server/dist/
 
-# Optional eslint cache
-.eslintcache
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
+# Ignore the dotenv environment variables file
 .env
 
-# OS generated files
+# Ignore IDE files
 .DS_Store
-
-# IDE/Editor-specific files
 .vscode/
-
-# Lock files (optional, you can remove these lines if you want to keep them tracked)
-package-lock.json
-yarn.lock
-
